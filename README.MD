@@ -57,7 +57,7 @@ Periodic Audits: Assigned verification cycles that automatically compile discrep
 ## 🛠️ Installation & Getting Started
 1. Clone the Repository
 Bash
-git clone [https://github.com/yourusername/AssetFlow.git](https://github.com/aadyadixit17-code/AssetFlow.git)
+git clone [https://github.com/aadyadixit17-code/AssetFlow.git](https://github.com/aadyadixit17-code/AssetFlow.git)
 cd AssetFlow
 2. Configure Environment Variables
 Set up your backend environment file inside the backend/ directory with your database paths and API credentials.
