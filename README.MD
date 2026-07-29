@@ -1,19 +1,26 @@
-AssetFlow 🏢📦
-Enterprise Asset & Resource Management System
+
+# AssetFlow 🏢📦
+> **Enterprise Asset & Resource Management System**
 
 AssetFlow is a centralized Enterprise Resource Planning (ERP) platform designed to digitize and streamline how organizations track, allocate, and maintain their physical assets and shared resources. By removing manual spreadsheets and paper logs, it provides structured asset lifecycles, real-time tracking, time-slot resource bookings, and secure role-based workflows.
 
-📸 Application Previews
+---
+
+## 📸 Application Previews
+
 <p align="center">
-    <img src="path/to/login page.png" alt="Image Description" width="80%">
-  </a>
+  <img src="login page.png" alt="Login Screen" width="75%">
 </p>
+
 <p align="center">
-    <img src="path/to/Signup page.png" alt="Image Description" width="80%">
-  </a>
+  <img src="Signup page.png" alt="Signup Screen" width="75%">
 </p>
-📂 Project Structure
-Plaintext
+
+---
+
+## 📂 Project Structure
+
+```text
 AssetFlow/
 ├── backend/
 │   ├── config/              # Database and environment configurations
@@ -49,7 +56,7 @@ Periodic Audits: Assigned verification cycles that automatically compile discrep
 🛠️ Installation & Getting Started
 1. Clone the Repository
 Bash
-git clone https://github.com/yourusername/AssetFlow.git
+git clone [https://github.com/yourusername/AssetFlow.git](https://github.com/yourusername/AssetFlow.git)
 cd AssetFlow
 2. Configure Environment Variables
 Set up your backend environment file inside the backend/ directory with your database paths and API credentials.
