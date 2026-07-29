@@ -36,7 +36,8 @@ AssetFlow/
 │       ├── context/         # Application state management
 │       └── pages/           # View screens (Dashboard, Registry, Setup, etc.)
 └── package.json
-🚀 Core Features
+```
+## 🚀 Core Features
 Secure Authentication: Role-secure backend with session validation and email/password login.
 
 Centralized Dashboard: Real-time KPI summaries tracking available/allocated assets, maintenance requests, and active bookings.
@@ -53,7 +54,7 @@ Maintenance Workflows: Multi-step repair management routing requests through app
 
 Periodic Audits: Assigned verification cycles that automatically compile discrepancy reports.
 
-🛠️ Installation & Getting Started
+## 🛠️ Installation & Getting Started
 1. Clone the Repository
 Bash
 git clone [https://github.com/yourusername/AssetFlow.git](https://github.com/yourusername/AssetFlow.git)
