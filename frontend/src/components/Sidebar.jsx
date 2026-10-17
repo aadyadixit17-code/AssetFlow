@@ -6,16 +6,16 @@ function Sidebar() {
   const location = useLocation();
 
   const menuItems = [
-    { name: '📊 Dashboard', path: '/dashboard' },
-    { name: '🏢 Org Setup', path: '/org-setup' },
+    { name: '📊 Dashboard', path: '/' },
+    { name: '🏢 Org Setup', path: '/organization' },
     { name: '📋 Asset Registry', path: '/assets' },
     { name: '📅 Bookings', path: '/bookings' },
     { name: '🛠️ Maintenance', path: '/maintenance' },
   ];
 
   const handleLogout = () => {
-    localStorage.removeItem('userToken');
-    localStorage.removeItem('userRole');
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
     navigate('/login');
   };
 

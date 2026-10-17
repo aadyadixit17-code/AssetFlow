@@ -1,39 +1,52 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate, Outlet } from 'react-router-dom';
+import LoginSignup from './components/LoginSignup';
 import Dashboard from './pages/Dashboard';
+import OrgSetup from './pages/OrgSetup';
 import AssetRegistry from './pages/AssetRegistry';
 import ResourceBooking from './pages/ResourceBooking';
 import MaintenanceManagement from './pages/MaintenanceManagement';
-import OrgSetup from './pages/OrgSetup';
-import Login from './pages/Login.jsx';   // Explicitly adding .jsx extension
-import Signup from './pages/Signup.jsx'; // Explicitly adding .jsx extension
+import Sidebar from './components/Sidebar'; // Import your central Sidebar component
 
-// Route Guard Definition
-const ProtectedRoute = ({ children }) => {
+// Protected Layout Route with Outlet
+const ProtectedLayout = () => {
   const token = localStorage.getItem('token');
-  return token ? children : <Navigate to="/login" replace />;
+  if (!token) return <Navigate to="/login" replace />;
+
+  return (
+    <div style={{ display: 'flex', minHeight: '100vh', fontFamily: 'Arial, sans-serif' }}>
+      {/* Sidebar rendered exactly once here */}
+      <Sidebar />
+      {/* Main content container for nested pages */}
+      <div style={{ flex: 1, padding: '30px', background: '#f8fafc', overflowY: 'auto' }}>
+        <Outlet />
+      </div>
+    </div>
+  );
 };
 
-function App() {
+export default function App() {
+  const [user, setUser] = useState(null);
+
   return (
     <Router>
       <Routes>
-        {/* Entry Point Gates */}
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
+        {/* Public Auth Routes */}
+        <Route path="/login" element={<LoginSignup onLoginSuccess={setUser} />} />
+        <Route path="/signup" element={<LoginSignup onLoginSuccess={setUser} />} />
 
-        {/* Protected Dashboard Panels */}
-        <Route path="/" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
-        <Route path="/assets" element={<ProtectedRoute><AssetRegistry /></ProtectedRoute>} />
-        <Route path="/bookings" element={<ProtectedRoute><ResourceBooking /></ProtectedRoute>} />
-        <Route path="/maintenance" element={<ProtectedRoute><MaintenanceManagement /></ProtectedRoute>} />
-        <Route path="/organization" element={<ProtectedRoute><OrgSetup /></ProtectedRoute>} />
+        {/* Protected Routes nested inside the layout */}
+        <Route element={<ProtectedLayout />}>
+          <Route path="/" element={<Dashboard />} />
+          <Route path="/organization" element={<OrgSetup />} />
+          <Route path="/assets" element={<AssetRegistry />} />
+          <Route path="/bookings" element={<ResourceBooking />} />
+          <Route path="/maintenance" element={<MaintenanceManagement />} />
+        </Route>
 
-        {/* Fallback Redirection Handler */}
+        {/* Fallback Redirect */}
         <Route path="*" element={<Navigate to="/login" replace />} />
       </Routes>
     </Router>
   );
 }
-
-export default App;
