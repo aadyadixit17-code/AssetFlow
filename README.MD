@@ -128,10 +128,12 @@ npm run dev
 
 ## ☁️ Deployment on Render (Single Web Service)
 This repository is configured to deploy as a unified single service on Render:
+```bash
 **Root Directory:** backend
 **Build Command:** npm install
 **Start Command:** node server.js
 **Environment Variables:**
+```
 ```bash
 JWT_SECRET: (Your chosen secure random key)
 NODE_ENV: production
