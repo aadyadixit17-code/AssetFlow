@@ -1,27 +1,23 @@
 /* ==========================================================================
-   AssetFlow Global Pure Black + Revolving Neon Glow Theme
+   AssetFlow Final Perfect Theme Fixes
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
 :root {
-  --bg-dark: #000000;
-  --panel-bg: rgba(12, 12, 12, 0.9);
-  --panel-inner-bg: rgba(5, 5, 5, 0.95);
+  --bg-dark: #0a0208;
+  --panel-bg: rgba(22, 6, 17, 0.92);
+  --panel-inner-bg: rgba(14, 3, 11, 0.98);
   --pink-accent: #f472b6;
-  --pink-light: #fbcfe8;
-  --pink-glow: rgba(244, 114, 182, 0.4);
-  --neon-border: rgba(244, 114, 182, 0.3);
   --text-primary: #ffffff;
-  --text-muted: #cbd5e1;
-  --gradient-btn: linear-gradient(135deg, #be185d, #9d174d);
+  --border-pink: rgba(244, 114, 182, 0.4);
 }
 
-/* Base Body Styles */
 * {
   box-sizing: border-box;
 }
 
+/* Force body and html to display the rich red wave background globally */
 body, html {
   margin: 0;
   padding: 0;
@@ -29,26 +25,19 @@ body, html {
   background-color: var(--bg-dark) !important;
   color: var(--text-primary) !important;
   min-height: 100vh;
-  background-image: none !important;
+  background-image: linear-gradient(rgba(10, 2, 8, 0.82), rgba(10, 2, 8, 0.82)), 
+    url("https://img.magnific.com/free-vector/red-gradient-wave-background-abstract_343694-4557.jpg?semt=ais_hybrid&w=740&q=80") !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-attachment: fixed !important;
 }
 
-/* Custom Dark Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-::-webkit-scrollbar-track {
-  background: #000000;
-}
-::-webkit-scrollbar-thumb {
-  background: rgba(244, 114, 182, 0.3);
-  border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: var(--pink-accent);
+/* KILL ALL WHITE BACKGROUNDS ON CONTAINERS AND DIVS */
+div, main, section, article, header {
+  background-color: transparent !important;
 }
 
-/* Rotating White/Magenta Neon Border Effect */
+/* Revolving White Neon Border Card Style */
 @keyframes neonRotate {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
@@ -61,15 +50,9 @@ body, html {
   padding: 2px;
   overflow: hidden;
   backdrop-filter: blur(12px);
-  border: 1px solid var(--neon-border);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 15px rgba(244, 114, 182, 0.1);
+  border: 1px solid var(--border-pink);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.9);
   margin-bottom: 24px;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.neon-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.9), 0 0 22px rgba(244, 114, 182, 0.25);
 }
 
 .neon-card::before {
@@ -82,12 +65,12 @@ body, html {
   background: conic-gradient(
     transparent, 
     transparent, 
-    rgba(244, 114, 182, 0.3), 
+    rgba(244, 114, 182, 0.4), 
     #ffffff
   );
   animation: neonRotate 4s linear infinite;
   z-index: 0;
-  opacity: 0.85;
+  opacity: 0.9;
 }
 
 .neon-card-inner {
@@ -101,112 +84,78 @@ body, html {
   box-sizing: border-box;
 }
 
-/* Global Typography */
+/* Typography - Make all titles bright pink and body text crisp white */
 h1, h2, h3, h4, h5, h6 {
   color: var(--pink-accent) !important;
   font-weight: 700;
-  letter-spacing: -0.02em;
   margin-top: 0;
+  opacity: 1 !important;
 }
 
-p, span, label, li, div, small, strong {
+p, span, label, li, small, strong {
   color: var(--text-primary) !important;
+  opacity: 0.95;
 }
 
-.text-muted, p.description, span.subtext {
-  color: var(--pink-light) !important;
-  opacity: 0.85;
-}
-
-/* Form Controls & Inputs */
+/* Input Fields and Select Dropdowns */
 input, select, textarea {
-  background: #0a0a0a !important;
-  color: var(--text-primary) !important;
-  border: 1px solid rgba(244, 114, 182, 0.4) !important;
+  background: rgba(30, 8, 24, 0.95) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(244, 114, 182, 0.5) !important;
   border-radius: 8px !important;
   padding: 10px 14px !important;
-  font-family: inherit !important;
   font-size: 14px !important;
   outline: none !important;
-  transition: border-color 0.2s, box-shadow 0.2s !important;
-  width: 100%;
-}
-
-input:focus, select:focus, textarea:focus {
-  border-color: var(--pink-accent) !important;
-  box-shadow: 0 0 10px var(--pink-glow) !important;
 }
 
 input::placeholder, textarea::placeholder {
-  color: var(--pink-light) !important;
-  opacity: 0.5;
+  color: #fbcfe8 !important;
+  opacity: 0.6;
 }
 
 select option {
-  background: #0a0a0a !important;
+  background: #14030c !important;
   color: #ffffff !important;
 }
 
-/* Buttons Styling */
+/* Action Buttons */
 button, .btn {
-  background: var(--gradient-btn) !important;
+  background: linear-gradient(135deg, #be185d, #9d174d) !important;
   color: #ffffff !important;
-  border: 1px solid var(--pink-accent) !important;
+  border: 1px solid #f472b6 !important;
   border-radius: 8px !important;
   padding: 10px 18px !important;
-  font-weight: 600 !important;
-  font-family: inherit !important;
+  font-weight: bold !important;
   cursor: pointer !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  gap: 8px !important;
-  box-shadow: 0 4px 14px rgba(190, 24, 93, 0.4) !important;
-  transition: all 0.2s ease !important;
 }
 
-button:hover, .btn:hover {
+button:hover {
   opacity: 0.95 !important;
-  transform: translateY(-1px) !important;
-  box-shadow: 0 6px 18px rgba(190, 24, 93, 0.6), 0 0 10px var(--pink-glow) !important;
 }
 
-button:active {
-  transform: translateY(0) !important;
-}
-
-/* Data Tables Styling */
+/* Tables Styling & Full Text Visibility */
 table {
-  width: 100%;
-  border-collapse: separate;
-  border-spacing: 0;
-  background: #0a0a0a !important;
-  border-radius: 10px;
-  overflow: hidden;
-  border: 1px solid rgba(244, 114, 182, 0.2) !important;
-  margin-top: 15px;
+  width: 100% !important;
+  background: rgba(14, 3, 11, 0.95) !important;
+  border-radius: 10px !important;
+  border-collapse: collapse !important;
+  border: 1px solid rgba(244, 114, 182, 0.3) !important;
+  margin-top: 15px !important;
 }
 
 th {
   color: var(--pink-accent) !important;
-  background: #121212 !important;
-  padding: 14px 16px;
-  text-align: left;
-  font-size: 13px;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  background: rgba(35, 8, 28, 0.95) !important;
+  padding: 12px 16px !important;
+  text-align: left !important;
   border-bottom: 1px solid rgba(244, 114, 182, 0.3) !important;
 }
 
 td {
-  padding: 12px 16px;
-  color: var(--text-primary) !important;
-  border-bottom: 1px solid rgba(244, 114, 182, 0.1) !important;
-  font-size: 14px;
-}
-
-tr:last-child td {
-  border-bottom: none !important;
+  color: #ffffff !important;
+  background: transparent !important;
+  padding: 12px 16px !important;
+  border-bottom: 1px solid rgba(244, 114, 182, 0.15) !important;
 }
 
 tr:hover td {
@@ -214,52 +163,6 @@ tr:hover td {
 }
 
 /* Status Badges */
-.badge {
-  padding: 4px 10px;
-  border-radius: 20px;
-  font-size: 12px;
-  font-weight: 600;
-  display: inline-block;
-  border: 1px solid transparent;
-}
-
-.badge-success {
-  background: rgba(34, 197, 94, 0.2) !important;
-  color: #4ade80 !important;
-  border-color: rgba(34, 197, 94, 0.4) !important;
-}
-
-.badge-warning {
-  background: rgba(234, 179, 8, 0.2) !important;
-  color: #fde047 !important;
-  border-color: rgba(234, 179, 8, 0.4) !important;
-}
-
-.badge-danger {
-  background: rgba(239, 68, 68, 0.2) !important;
-  color: #fca5a5 !important;
-  border-color: rgba(239, 68, 68, 0.4) !important;
-}
-
-.badge-info {
-  background: rgba(56, 189, 248, 0.2) !important;
-  color: #38bdf8 !important;
-  border-color: rgba(56, 189, 248, 0.4) !important;
-}
-
-/* Navigation & Sidebar Overrides */
-aside, .sidebar {
-  background: #050505 !important;
-  border-right: 1px solid rgba(244, 114, 182, 0.2) !important;
-}
-
-aside a, .sidebar-link {
-  color: var(--text-muted) !important;
-  transition: all 0.2s ease;
-}
-
-aside a.active, aside a:hover, .sidebar-link.active {
-  color: #ffffff !important;
-  background: rgba(244, 114, 182, 0.2) !important;
-  border-left: 3px solid var(--pink-accent);
-}
+.badge-success, span.badge-success { background: rgba(34, 197, 94, 0.2) !important; color: #4ade80 !important; }
+.badge-warning, span.badge-warning { background: rgba(234, 179, 8, 0.2) !important; color: #fde047 !important; }
+.badge-danger, span.badge-danger { background: rgba(239, 68, 68, 0.2) !important; color: #fca5a5 !important; }
