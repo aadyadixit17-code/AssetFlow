@@ -65,42 +65,42 @@ AssetFlow/
 
 
 ## 🚀Core Features
-#Secure Authentication: Role-secure backend with session validation and email/password login using JWT tokens and bcryptjs hashing.
+**Secure Authentication:** Role-secure backend with session validation and email/password login using JWT tokens and bcryptjs hashing.
 
-Centralized Dashboard: Real-time KPI summaries tracking available/allocated assets, maintenance requests, active bookings, and total asset counts.
+**Centralized Dashboard:** Real-time KPI summaries tracking available/allocated assets, maintenance requests, active bookings, and total asset counts.
 
-Organization Master Setup: Comprehensive management of departments, custom asset categories, and employee directories from a unified control center.
+**Organization Master Setup:** Comprehensive management of departments, custom asset categories, and employee directories from a unified control center.
 
-Asset Lifecycle Management: Complete status tracking through lifecycles: Available, Allocated, Reserved, Under Maintenance, Lost, Retired, and Disposed.
+**Asset Lifecycle Management:** Complete status tracking through lifecycles: Available, Allocated, Reserved, Under Maintenance, Lost, Retired, and Disposed.
 
-Conflict-Free Allocations: Prevent double-allocations with automated status checking and integrated transfer request workflows.
+**Conflict-Free Allocations:** Prevent double-allocations with automated status checking and integrated transfer request workflows.
 
-Time-Slot Resource Booking: Avoid scheduling clashes for shared rooms or equipment through real-time calendar overlap validation.
+**Time-Slot Resource Booking:** Avoid scheduling clashes for shared rooms or equipment through real-time calendar overlap validation.
 
-Maintenance Workflows: Multi-step repair management routing requests through priority approvals before updating asset statuses.
+**Maintenance Workflows:** Multi-step repair management routing requests through priority approvals before updating asset statuses.
 
-Periodic Audits: Assigned verification cycles that automatically flag missing or damaged items and compile discrepancy reports.
+**Periodic Audits:** Assigned verification cycles that automatically flag missing or damaged items and compile discrepancy reports.
 
 ## 🛠️ Tech Stack & Architecture
-Frontend: React.js, Vite, React Router DOM, Custom Glassmorphism CSS with Revolving Neon Borders.
+**Frontend:** React.js, Vite, React Router DOM, Custom Glassmorphism CSS with Revolving Neon Borders.
 
-Backend: Node.js, Express.js.
+**Backend:** Node.js, Express.js.
 
-Database & ORM: SQLite3, Sequelize ORM.
+**Database & ORM:** SQLite3, Sequelize ORM.
 
-Authentication: JSON Web Tokens (jsonwebtoken), bcryptjs.
+**Authentication:** JSON Web Tokens (jsonwebtoken), bcryptjs.
 
-Deployment: Single-service deployment on Render serving compiled static React files directly via Express.
+**Deployment:** Single-service deployment on Render serving compiled static React files directly via Express.
 
 ## 🛠️ Local Installation & Setup
-1. Clone the Repository
+1. **Clone the Repository**
 ```bash
 Bash
 git clone [https://github.com/aadyadixit17-code/AssetFlow.git](https://github.com/aadyadixit17-code/AssetFlow.git)
 cd AssetFlow
 ```
 
-2. Configure Environment Variables
+2. **Configure Environment Variables**
 Create a .env file inside the backend/ directory:
 ```bash
 Code snippet
@@ -109,7 +109,7 @@ JWT_SECRET=your_custom_jwt_secret_key
 NODE_ENV=development
 ```
 
-3. Install & Run Dependencies
+3. **Install & Run Dependencies**
 Backend Server:
 ```bash
 Bash
@@ -118,7 +118,7 @@ npm install
 npm run dev
 ```
 
-4. Frontend Development Server:
+4. **Frontend Development Server:**
 ```bash
 Bash
 cd ../frontend
@@ -128,14 +128,10 @@ npm run dev
 
 ## ☁️ Deployment on Render (Single Web Service)
 This repository is configured to deploy as a unified single service on Render:
-
-Root Directory: backend
-
-Build Command: npm install
-
-Start Command: node server.js
-
-Environment Variables:
+**Root Directory:** backend
+**Build Command:** npm install
+**Start Command:** node server.js
+**Environment Variables:**
 ```bash
 JWT_SECRET: (Your chosen secure random key)
 NODE_ENV: production
