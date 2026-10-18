@@ -65,7 +65,7 @@ AssetFlow/
 
 
 ## 🚀Core Features
-Secure Authentication: Role-secure backend with session validation and email/password login using JWT tokens and bcryptjs hashing.
+#Secure Authentication: Role-secure backend with session validation and email/password login using JWT tokens and bcryptjs hashing.
 
 Centralized Dashboard: Real-time KPI summaries tracking available/allocated assets, maintenance requests, active bookings, and total asset counts.
 
