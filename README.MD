@@ -21,7 +21,7 @@ Access the deployed application on Render:
 ## 📸 Application Previews
 
 <p align="center">
-  <img src="login.png" alt="Login Screen" width="80%">
+  <img src="log.png" alt="Login Screen" width="80%">
 </p>
 
 ### 🔐 Secure Authentication & Access Control
@@ -30,7 +30,7 @@ The entry gateway features JWT authentication with hashed password security, pro
 ---
 
 <p align="center">
-  <img src="dashboard.png" alt="Signup Screen" width="80%">
+  <img src="dash.png" alt="Signup Screen" width="80%">
 </p>
 
 ### 👥 User Onboarding & Organization Setup
