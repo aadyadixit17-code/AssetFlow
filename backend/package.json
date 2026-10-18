@@ -1,11 +1,12 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "description": "",
-  "main": "server.js",
+  "description": "AssetFlow Backend Server",
+  "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "build": "cd ../frontend && npm install && npm run build"
   },
   "keywords": [],
   "author": "",
@@ -24,5 +25,4 @@
   "devDependencies": {
     "nodemon": "^3.1.14"
   }
-  
 }

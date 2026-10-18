@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const path = require('path');
 const { Sequelize, DataTypes } = require('sequelize');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
@@ -144,7 +145,7 @@ app.post('/api/auth/login', async (req, res) => {
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) return res.status(400).json({ message: 'Invalid credentials.' });
     
-    const token = jwt.sign({ id: user.id }, 'secret_key', { expiresIn: '1d' });
+    const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET || 'secret_key', { expiresIn: '1d' });
     
     res.json({ 
       token, 
@@ -666,7 +667,17 @@ app.get('/api/dashboard/summary', async (req, res) => {
   }
 });
 
-app.get('/', (req, res) => res.send('🚀 AssetFlow Server Running via Local Storage.'));
+// ==========================================
+// SERVE STATIC FRONTEND & SPA FALLBACK ROUTE
+// ==========================================
+
+// Serve static React build files
+app.use(express.static(path.join(__dirname, '../frontend/dist')));
+
+// Serve React single-page app for any non-API route
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../frontend/dist/index.html'));
+});
 
 // Sync Database and Initialize Port Listening
 sequelize.sync().then(() => {
