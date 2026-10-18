@@ -1,5 +1,6 @@
 /* ==========================================================================
-   AssetFlow Final Perfect Theme Fixes
+   AssetFlow Final Complete Stylesheet
+   Dark Red Wave + Revolving White Neon Theme + High-Contrast Visibility
    ========================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
@@ -9,6 +10,7 @@
   --panel-bg: rgba(22, 6, 17, 0.92);
   --panel-inner-bg: rgba(14, 3, 11, 0.98);
   --pink-accent: #f472b6;
+  --pink-light: #fbcfe8;
   --text-primary: #ffffff;
   --border-pink: rgba(244, 114, 182, 0.4);
 }
@@ -17,7 +19,7 @@
   box-sizing: border-box;
 }
 
-/* Force body and html to display the rich red wave background globally */
+/* Global Body Background & Typography Setup */
 body, html {
   margin: 0;
   padding: 0;
@@ -25,19 +27,38 @@ body, html {
   background-color: var(--bg-dark) !important;
   color: var(--text-primary) !important;
   min-height: 100vh;
-  background-image: linear-gradient(rgba(10, 2, 8, 0.82), rgba(10, 2, 8, 0.82)), 
+  background-image: linear-gradient(rgba(10, 2, 8, 0.85), rgba(10, 2, 8, 0.85)), 
     url("https://img.magnific.com/free-vector/red-gradient-wave-background-abstract_343694-4557.jpg?semt=ais_hybrid&w=740&q=80") !important;
   background-size: cover !important;
   background-position: center !important;
   background-attachment: fixed !important;
 }
 
-/* KILL ALL WHITE BACKGROUNDS ON CONTAINERS AND DIVS */
-div, main, section, article, header {
+/* Force dark transparent backgrounds on outer page wrappers */
+main, section, article, header,
+div[style*="background"], 
+div[style*="background-color"] {
   background-color: transparent !important;
+  background: transparent !important;
 }
 
-/* Revolving White Neon Border Card Style */
+/* Custom Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(10, 2, 8, 0.8);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(244, 114, 182, 0.3);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--pink-accent);
+}
+
+/* Revolving White Neon Border Container Effect */
 @keyframes neonRotate {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
@@ -84,20 +105,18 @@ div, main, section, article, header {
   box-sizing: border-box;
 }
 
-/* Typography - Make all titles bright pink and body text crisp white */
+/* Headings and Typography Rules */
 h1, h2, h3, h4, h5, h6 {
   color: var(--pink-accent) !important;
-  font-weight: 700;
+  font-weight: 700 !important;
   margin-top: 0;
-  opacity: 1 !important;
 }
 
-p, span, label, li, small, strong {
-  color: var(--text-primary) !important;
-  opacity: 0.95;
+p, span, label, li, small, strong, div, td {
+  color: #ffffff !important;
 }
 
-/* Input Fields and Select Dropdowns */
+/* Form Inputs, Select Dropdowns, and Textareas */
 input, select, textarea {
   background: rgba(30, 8, 24, 0.95) !important;
   color: #ffffff !important;
@@ -118,7 +137,7 @@ select option {
   color: #ffffff !important;
 }
 
-/* Action Buttons */
+/* Button Controls */
 button, .btn {
   background: linear-gradient(135deg, #be185d, #9d174d) !important;
   color: #ffffff !important;
@@ -133,7 +152,7 @@ button:hover {
   opacity: 0.95 !important;
 }
 
-/* Tables Styling & Full Text Visibility */
+/* Table Layout & Visibility */
 table {
   width: 100% !important;
   background: rgba(14, 3, 11, 0.95) !important;
@@ -158,11 +177,64 @@ td {
   border-bottom: 1px solid rgba(244, 114, 182, 0.15) !important;
 }
 
-tr:hover td {
-  background: rgba(244, 114, 182, 0.08) !important;
+/* ==========================================================================
+   Category, Severity, & Status Pill Overrides (High-Contrast Fix)
+   ========================================================================== */
+
+/* Target Category & Metadata Pills (e.g., Hardware, AV Equipment) */
+td span, 
+td div, 
+.category-pill, 
+.badge,
+[class*="category"],
+[class*="status"],
+[class*="severity"] {
+  background-color: rgba(35, 10, 30, 0.9) !important;
+  color: #f472b6 !important;
+  border: 1px solid rgba(244, 114, 182, 0.4) !important;
+  padding: 4px 10px !important;
+  border-radius: 6px !important;
+  font-weight: 600 !important;
+  font-size: 12px !important;
+  display: inline-block !important;
 }
 
-/* Status Badges */
-.badge-success, span.badge-success { background: rgba(34, 197, 94, 0.2) !important; color: #4ade80 !important; }
-.badge-warning, span.badge-warning { background: rgba(234, 179, 8, 0.2) !important; color: #fde047 !important; }
-.badge-danger, span.badge-danger { background: rgba(239, 68, 68, 0.2) !important; color: #fca5a5 !important; }
+/* Status: Allocated / Active / In Progress */
+.status-allocated, 
+.status-in-progress, 
+[class*="progress"], 
+[class*="allocated"] {
+  background-color: rgba(56, 189, 248, 0.2) !important;
+  color: #38bdf8 !important;
+  border-color: rgba(56, 189, 248, 0.5) !important;
+}
+
+/* Status: Available / Resolved */
+.status-available, 
+.status-resolved, 
+[class*="available"], 
+[class*="resolved"] {
+  background-color: rgba(34, 197, 94, 0.2) !important;
+  color: #4ade80 !important;
+  border-color: rgba(34, 197, 94, 0.5) !important;
+}
+
+/* Status / Severity: High / Maintenance */
+.status-maintenance, 
+.severity-high, 
+[class*="maintenance"], 
+[class*="high"] {
+  background-color: rgba(239, 68, 68, 0.2) !important;
+  color: #f87171 !important;
+  border-color: rgba(239, 68, 68, 0.5) !important;
+}
+
+/* Severity: Medium / Low */
+.severity-medium, 
+.severity-low, 
+[class*="medium"], 
+[class*="low"] {
+  background-color: rgba(234, 179, 8, 0.2) !important;
+  color: #fde047 !important;
+  border-color: rgba(234, 179 );
+}
